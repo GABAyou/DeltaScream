@@ -1,0 +1,12 @@
+README.md
+pyproject.toml
+src/DeltaStream/DeltaScream.py
+src/DeltaStream/RecorderTributary.py
+src/DeltaStream/SourceCapture.py
+src/DeltaStream/TheDelta.py
+src/DeltaStream/__init__.py
+src/DeltaStream.egg-info/PKG-INFO
+src/DeltaStream.egg-info/SOURCES.txt
+src/DeltaStream.egg-info/dependency_links.txt
+src/DeltaStream.egg-info/requires.txt
+src/DeltaStream.egg-info/top_level.txt

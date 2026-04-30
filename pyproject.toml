@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "DeltaScream"
+version = "0.1.1"
+authors = [
+  { name="WhoIsAbishag (GABAyou)" },
+]
+description = "A Thread-Safe, Zero-Lag Camera and Audio Multiplexer with Built-In Recording and Watchdog"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: Microsoft :: Windows",
+]
+dependencies = [
+    "opencv-python",
+    "PyAudioWPatch>=0.2.12",
+    "numpy"
+]
+
+[project.urls]
+"Homepage" = "https://github.com/GABAyou/DeltaScream"
+"Bug Tracker" = "https://github.com/GABAyou/DeltaScream/issues"
