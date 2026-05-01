@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "DeltaScream"
-version = "0.1.1"
+version = "0.1.3"
 authors = [
   { name="WhoIsAbishag (GABAyou)" },
 ]
@@ -19,7 +19,8 @@ classifiers = [
 dependencies = [
     "opencv-python",
     "PyAudioWPatch>=0.2.12",
-    "numpy"
+    "numpy",
+    "mss"
 ]
 
 [project.urls]

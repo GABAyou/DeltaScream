@@ -10,6 +10,9 @@ class TheDelta:
         self.video_frame = None
         self.video_lock = threading.Lock()
         
+        self.screen_frame = None
+        self.screen_lock = threading.Lock()
+        
         # Audio is sequential. We maintain a list of historical chunks.
         # Max history prevents memory leaks if left running for days.
         self.audio_frames = []
@@ -21,6 +24,11 @@ class TheDelta:
         with self.video_lock:
             # We store a copy so readers don't get memory torn while writing
             self.video_frame = frame.copy()
+            
+    def screen_callback(self, frame):
+        """ Called by SourceCapture when a new screen frame arrives. """
+        with self.screen_lock:
+            self.screen_frame = frame.copy()
             
     def audio_callback(self, data_tuple):
         """ Called by SourceCapture when new audio chunks arrive. """
@@ -37,6 +45,13 @@ class TheDelta:
         with self.video_lock:
             if self.video_frame is not None:
                 return True, self.video_frame.copy()
+            return False, None
+            
+    def read_screen(self):
+        """ Returns (success, frame). Infinite consumers can call this concurrently. """
+        with self.screen_lock:
+            if self.screen_frame is not None:
+                return True, self.screen_frame.copy()
             return False, None
             
     def read_audio(self, index_from=0):

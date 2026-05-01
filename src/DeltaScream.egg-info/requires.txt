@@ -1,3 +1,4 @@
 opencv-python
 PyAudioWPatch>=0.2.12
 numpy
+mss
